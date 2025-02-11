@@ -1,10 +1,6 @@
 from django.shortcuts import render
 from .models import MenuItem, Category
 import json
-# Create your views here.
-import json
-from django.shortcuts import render
-from .models import Category, MenuItem
 
 def menu(request):
     categories = Category.objects.prefetch_related('menu_items').all()
@@ -23,3 +19,4 @@ def menu(request):
         'categories': categories,
         'cart': cart
     })
+

@@ -119,13 +119,13 @@
                                 <div class="card-body">
                                     <h3 class="card-title">{{ item.name }}</h3>
                                     <p class="card-text text-muted">Price: ${{ item.price }}</p>
-                                    <form action="{% url 'add_to_cart' %}" method="POST">
+                                    {% comment %} <form action="{% url 'add_to_cart' %}" method="POST">
                                         {% csrf_token %}
                                         <input type="hidden" name="item_id" value="{{ item.id }}">
                                         <button type="submit" class="btn btn-add-to-cart w-100">
                                             <i class="fas fa-cart-plus"></i> Add to Cart
                                         </button>
-                                    </form>
+                                    </form> {% endcomment %}
                                 </div>
                             </div>
                         </div>
@@ -160,20 +160,20 @@
                     <p class="fw-bold">Total: ${{ total_price|floatformat:2 }}</p>
 
                     <!-- Complete Order Button -->
-                    <form action="{% url 'complete_order' %}" method="POST" class="mb-3">
+                    {% comment %} <form action="{% url 'complete_order' %}" method="POST" class="mb-3">
                         {% csrf_token %}
                         <button type="submit" class="btn btn-complete-order w-100">
                             <i class="fas fa-check-circle"></i> Complete Order
                         </button>
-                    </form>
+                    </form> {% endcomment %}
 
                     <!-- Reset Cart Button -->
-                    <form action="{% url 'reset_cart' %}" method="POST">
+                    {% comment %} <form action="{% url 'reset_cart' %}" method="POST">
                         {% csrf_token %}
                         <button type="submit" class="btn btn-reset w-100">
                             <i class="fas fa-sync-alt"></i> Reset Cart
                         </button>
-                    </form>
+                    </form> {% endcomment %}
                 </div>
             </div>
         </div>
